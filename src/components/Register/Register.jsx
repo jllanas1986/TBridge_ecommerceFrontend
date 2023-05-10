@@ -58,7 +58,7 @@ const Register = () => {
           name="email"
         />
 
-<input
+        <input
           type="password"
           placeholder="password"
           onChange={handleInputChange}
