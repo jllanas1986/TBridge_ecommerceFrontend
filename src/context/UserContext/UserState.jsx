@@ -7,6 +7,8 @@ const token = JSON.parse(localStorage.getItem("token"));
 const initialState = {
     user: null,
     token: token ? token : null,
+    message:"",
+    logoutMessage:""
 };
 
 const API_URL = "http://localhost:3000";
@@ -31,6 +33,36 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const getUserInfo = async()=>{
+    const token = JSON.parse(localStorage.getItem('token'))
+    const res = await axios.get(`${API_URL}/users/showInfoUser`, {
+        headers: {
+            Authorization: token
+        } 
+    })
+    dispatch({
+        type: "GET_USER_INFO",
+        payload: res.data
+    })
+  }
+
+  const logout = async () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const res = await axios.delete(API_URL + "/users/logout",  
+    {
+      headers: {
+        authorization: token,
+      },
+    });
+    dispatch({
+      type: "LOGOUT",
+      payload: res.data,
+    });
+    if (res.data) {
+      localStorage.removeItem("token");
+    }
+  };
+
   
   return (
       <UserContext.Provider
@@ -38,7 +70,11 @@ export const UserProvider = ({ children }) => {
           user: state.user,
           postUser,
           token: state.token,
+          message: state.message,
+          logoutMessage:state.logoutMessage,
           login,
+          getUserInfo,
+          logout
         }}
         >
     {children}
