@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;900&family=Goudy+Bookletter+1911&family=Space+Mono&display=swap");
+
+:root {
+    --one: #2F6690;
+    --two: #3A7CA5;
+    --three: #ffffff;
+    --four: #16425B;
+    --five: #81C3D7;
+}
+
+.headerContainer {
+    background-color: #16425B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    align-items: center;
+    height: 70px;
+    color: #ffffff;
+}
+
+.navBar {
+    font-size: 20px;
+}
+
+.links {
+    color: #ffffff;
+}
+
+#icon {
+    width: 100px;
+}

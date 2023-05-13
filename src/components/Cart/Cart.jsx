@@ -1,37 +1,49 @@
-import React from "react";
+import React, { useContext, useEffect } from 'react'
+import { ProductContext } from '../../context/ProductContext/ProductState'
+import { OrdersContext } from '../../context/OrdersContext/OrdersState'
+import { Empty, notification } from 'antd'
 
 const Cart = () => {
-  const { cart, clearCart } = useContext(ProductsContext);
-  const { createOrder } = useContext(OrdersContext);
+    const {cart, clearCart} = useContext(ProductContext)
+    const {createNewOrder} = useContext(OrdersContext)
 
-  const orderFinish = () => {
-    createOrder(cart);
-    setTimeout(() => {
-      clearCart();
-    }, 1000);
-    notification.success({
-      message: "Order created",
-    });
-  };
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }, [cart]);
+    
 
-  if (cart.length < 1) {
-    return <Empty description={<span>No products</span>} />;
-  }
-
-  return (
-    <div>
-      {cart.map((product) => {
+    if (!cart) {
+        return <Empty description = {
+            <span>
+              No products
+            </span>
+          }/>
+      }
+    
+      const cartItem = cart.map((cartItem, i) => {
         return (
-          <div>
-            <p>{product.name}</p>
-            <p>{product.price} €</p>
+          <div className="cart" key={i}>
+            <span>{cartItem.name}</span>
+            <span>{cartItem.price.toFixed(2)}</span>
           </div>
         );
-      })}
-      <button onClick={() => clearCart()}>Clear cart</button>
-      <button onClick={() => orderFinish()}>Create order</button>
-    </div>
-  );
-};
+      });
+      return (
+        <div>
+          {cartItem}
+          <button onClick={() => clearCart()}>Clear cart</button>
+          <button onClick={() => {
+            createNewOrder(cart)
+            setTimeout(() => {
+                clearCart()
+            }, 1000);
+            notification.success({
+                message: "Perdido creado con exito",
+              });
+          }}>Create Order</button>
+        </div>
+      );
+    
+}
 
-export default Cart;
+export default Cart
