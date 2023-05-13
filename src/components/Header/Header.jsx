@@ -9,7 +9,7 @@ const Header = () => {
     const navigate = useNavigate();
     useEffect(() => {
       if (logoutMessage) {
-        navigate("/login");
+        navigate("/home");
         notification.success({
           message: logoutMessage,
         });
@@ -24,14 +24,27 @@ const Header = () => {
           <Link to="/profile">
             {" "}
             <Avatar icon={<UserOutlined />} />
-            Profile
+            Profile |
           </Link>
+          
+          <span>
+              <Link to="/cart">
+                <ShoppingCartOutlined />
+              </Link>
+            </span>
+
+          <Link to="/products/showProducts">Products |</Link>
           <span onClick={() => logout()}>
             Logout
           </span>
         </>
         ) : (
-          <Link to="/login">Login</Link>
+        <>
+          <Link to="/login">Login |</Link>
+          <Link to="/users/createUser">Register |</Link>
+          <Link to="/products/showProducts">Products |</Link>
+          <Link to="/">Home </Link>
+        </>
       )}
     </div>
   );

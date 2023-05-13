@@ -8,7 +8,8 @@ const initialState = {
     user: null,
     token: token ? token : null,
     message:"",
-    logoutMessage:""
+    logoutMessage:"",
+    registerMessage:""
 };
 
 const API_URL = "http://localhost:3000";
@@ -19,7 +20,11 @@ export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(UserReducer, initialState);
 
   const postUser = async (user) => {
-    await axios.post("http://localhost:3000/users/createUser", user);
+    const res = await axios.post(API_URL + "/users/createUser", user);
+    dispatch({
+      type: "REGISTER",
+      payload: res.data
+    })
   };
 
   const login = async (user) => {
@@ -63,6 +68,8 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+
+
   
   return (
       <UserContext.Provider
@@ -71,6 +78,7 @@ export const UserProvider = ({ children }) => {
           postUser,
           token: state.token,
           message: state.message,
+          registerMessage: state.registerMessage,
           logoutMessage:state.logoutMessage,
           login,
           getUserInfo,

@@ -19,6 +19,11 @@ const users = (state, action) => {
         token: null,
         logoutMessage:action.payload.message,
       };
+    case "REGISTER":
+      return {
+        ...state,
+        registerMessage: action.payload.message,
+      };
     default:
       return state;
   }

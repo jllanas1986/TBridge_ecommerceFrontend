@@ -1,9 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext/UserState";
+import { useNavigate } from "react-router-dom";
+import { notification } from "antd";
 
 const Register = () => {
   
-  const { postUser, users } = useContext(UserContext);
+  const { postUser, users,registerMessage } = useContext(UserContext);
   
   const initialState = {
     name: "",
@@ -14,6 +16,7 @@ const Register = () => {
   const [data, setData] = useState(initialState);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate()
 
   const clearState = () => {
     setData({ ...initialState });
@@ -35,10 +38,21 @@ const Register = () => {
     });
   };
 
+  useEffect(()=>{
+    if(registerMessage){
+
+      notification.success({
+        message: registerMessage,
+    })
+      navigate("/login")
+    }
+  },[registerMessage])
   const handleSubmit = (event) => {
     event.preventDefault();
     postUser(data)
     clearState();
+
+
   };
 
   return (
