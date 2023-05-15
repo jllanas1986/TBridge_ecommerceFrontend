@@ -1,3 +1,10 @@
 .profileContainer {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    background-color: #81C3D7;
+}
+
+.profileCard {
+    align-self: center;
 }

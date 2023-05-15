@@ -1,9 +1,24 @@
 .footerContainer {
-    background-color: #16425B;
-    display: flex;
-    justify-content:center;
+  background-color: #16425b;
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
-.logo{
-    width: 200px;
+.logo {
+  width: 70px;
+  height: 30px;
+}
+
+.copyright {
+  color: white;
+  font-size: 10px;
+  
 }

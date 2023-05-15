@@ -17,7 +17,6 @@ const Products = () => {
 
   const product = products.map((product) => {
     return (
-      <div className="productsContainer">
         <div className="product">
           <Card
             hoverable
@@ -31,10 +30,10 @@ const Products = () => {
           >
             <span>{product.name} </span>
             <br></br>
-            <span>{product.price.toFixed(2) + " €"}</span>
+            <span>{product.price.toFixed(2) + " €"}</span><br></br>
+            <button onClick={() => addCart(product)}>Add Cart</button>
           </Card>
           </div>
-      </div>
       // <div className="productsContainer" key={product._id}>
       //   <div>
       //     <img className="imgProducts" src="https://img.mrvcdn.com/g/fb/kf/E10891acaa024406ea820d33ad51de80fC.jpg_2200x2200q79.jpg_.webp?icc=1"></img>
@@ -47,7 +46,7 @@ const Products = () => {
     );
   });
 
-  return <div>{product}</div>;
+  return <div className="productsContainer">{product}</div>;
 };
 
 export default Products;

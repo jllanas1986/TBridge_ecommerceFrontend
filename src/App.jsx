@@ -14,7 +14,7 @@ import { OrdersProvider } from "./context/OrdersContext/OrdersState";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <>
         <BrowserRouter>
           <UserProvider>

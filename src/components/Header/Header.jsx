@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <div className="headerContainer">
-        <img id="icon" src="https://img.freepik.com/vector-premium/tienda-online-logo_20448-122.jpg?w=2000"></img>
+        <a href="/"><img id="icon" src="https://img.freepik.com/vector-premium/tienda-online-logo_20448-122.jpg?w=2000"></img></a>
       {token? (
         <div>
           <Link className="links" to="/products/showProducts">Products | </Link>
@@ -34,7 +34,7 @@ const Header = () => {
             <ShoppingCartOutlined /> Cart |
             </Badge>
           </Link>
-          <span className="links" onClick={() => logout()}> Logout</span>
+          <span id="logOut" className="links" onClick={() => logout()}> Logout</span>
         </div>
         ) : (
         <div className="navBar">

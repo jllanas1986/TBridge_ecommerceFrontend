@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { ProductContext } from '../../context/ProductContext/ProductState'
 import { OrdersContext } from '../../context/OrdersContext/OrdersState'
 import { Empty, notification } from 'antd'
+import "./Cart.scss"
 
 const Cart = () => {
     const {cart, clearCart} = useContext(ProductContext)
@@ -12,24 +13,27 @@ const Cart = () => {
       }, [cart]);
     
 
-    if (!cart) {
-        return <Empty description = {
+    if (cart.length < 1) {
+        return <div className='cart-container'>
+          <Empty description = {
             <span>
               No products
             </span>
           }/>
+        </div> 
       }
     
       const cartItem = cart.map((cartItem, i) => {
         return (
           <div className="cart" key={i}>
-            <span>{cartItem.name}</span>
+            <img className="imgCart" alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"/><br></br>
+            <span>{cartItem.name}</span><br></br>
             <span>{cartItem.price.toFixed(2)}</span>
           </div>
         );
       });
       return (
-        <div>
+        <div className='cart-container'>
           {cartItem}
           <button onClick={() => clearCart()}>Clear cart</button>
           <button onClick={() => {
