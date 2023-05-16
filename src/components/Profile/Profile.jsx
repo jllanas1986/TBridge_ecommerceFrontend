@@ -41,7 +41,7 @@ const Profile = () => {
                     return (
                         <Collapse defaultActiveKey={['1']} >
                             <Panel header={order.createdAt} key="1">
-                                <p>{order.Products.map(product => product.name) }</p>
+                                <p>{order.Products.map(product => <p>{product.name}</p>) }</p>
                             </Panel>
                         </Collapse>
                     )

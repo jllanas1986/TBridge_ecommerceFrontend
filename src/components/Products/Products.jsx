@@ -1,7 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { ProductContext } from "../../context/ProductContext/ProductState";
 import "./Products.scss";
-import { Card } from "antd";
+import {ShoppingCartOutlined } from '@ant-design/icons';
+import { Button, Card } from "antd";
 
 const Products = () => {
   const { Meta } = Card;
@@ -16,22 +17,23 @@ const Products = () => {
   }, [cart]);
 
   const product = products.map((product) => {
+    console.log(product)
     return (
         <div className="product">
           <Card
             hoverable
             style={{ width: 240 }}
             cover={
-              <img
+              <img className="productImage"
                 alt="example"
-                src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+                src={product.image}
               />
             }
           >
             <span>{product.name} </span>
             <br></br>
             <span>{product.price.toFixed(2) + " €"}</span><br></br>
-            <button onClick={() => addCart(product)}>Add Cart</button>
+            <Button type="primary" onClick={() => addCart(product)} ghost>Add <ShoppingCartOutlined  /></Button>
           </Card>
           </div>
       // <div className="productsContainer" key={product._id}>

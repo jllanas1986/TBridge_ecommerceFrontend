@@ -1,7 +1,8 @@
 import React, { useContext, useEffect } from 'react'
 import { ProductContext } from '../../context/ProductContext/ProductState'
 import { OrdersContext } from '../../context/OrdersContext/OrdersState'
-import { Empty, notification } from 'antd'
+import { Button, Empty, notification } from 'antd'
+import {ShoppingCartOutlined } from '@ant-design/icons'
 import "./Cart.scss"
 
 const Cart = () => {
@@ -26,17 +27,17 @@ const Cart = () => {
       const cartItem = cart.map((cartItem, i) => {
         return (
           <div className="cart" key={i}>
-            <img className="imgCart" alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"/><br></br>
+            <img className="imgCart" alt="example" src={cartItem.image}/><br></br>
             <span>{cartItem.name}</span><br></br>
-            <span>{cartItem.price.toFixed(2)}</span>
+            <span>{cartItem.price.toFixed(2) + "€"}</span>
           </div>
         );
       });
       return (
         <div className='cart-container'>
           {cartItem}
-          <button onClick={() => clearCart()}>Clear cart</button>
-          <button onClick={() => {
+          <Button type="primary" onClick={() => clearCart()} ghost>Clear <ShoppingCartOutlined  /></Button>
+          <Button type="primary" onClick={() => {
             createNewOrder(cart)
             setTimeout(() => {
                 clearCart()
@@ -44,7 +45,7 @@ const Cart = () => {
             notification.success({
                 message: "Perdido creado con exito",
               });
-          }}>Create Order</button>
+          }} ghost>Create Order</Button>
         </div>
       );
     
