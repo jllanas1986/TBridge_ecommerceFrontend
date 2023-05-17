@@ -11,7 +11,7 @@ const Profile = () => {
         getUserInfo();
     }, [] );
     if(!user){
-        return  <div>
+        return  <div id="incorrectsDates">
                     <p>Datos de acceso incorrectos</p>
                     <Spin size="large" />
                 </div>

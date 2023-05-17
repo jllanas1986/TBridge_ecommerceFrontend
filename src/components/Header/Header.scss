@@ -24,15 +24,20 @@
 }
 
 .navBar {
-    font-size: 15px;
+    font-family: barlow;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
 }
 
 .links {
     color: #ffffff;
+    font-family: barlow;
+    font-size: 18px;
 }
 
 #icon {
-    width: 100px;
+    width: 70px;
 }
 
 #logOut {

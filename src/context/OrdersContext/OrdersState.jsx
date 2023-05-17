@@ -6,10 +6,9 @@ const API_URL = "http://localhost:3000";
 export const OrdersContext = createContext();
 
 export const OrdersProvider = ({ children }) => {
-  const createNewOrder = async (order) => {
+  const createNewOrder = async (cart) => {
     const token = JSON.parse(localStorage.getItem("token"));
-    console.log("ordeer",order)
-    const productsIds= user.Orders.map((product) => {
+    const productsIds= cart.map((product) => {
       return  product.id
     })
     try {

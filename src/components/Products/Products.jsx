@@ -24,27 +24,17 @@ const Products = () => {
             hoverable
             style={{ width: 240 }}
             cover={
-              <img className="productImage"
-                alt="example"
-                src={product.image}
-              />
+                <img className="productImage"
+                  alt="example"
+                  src={product.image}/>
             }
           >
-            <span>{product.name} </span>
+            <span><strong>{product.name}</strong></span>
             <br></br>
             <span>{product.price.toFixed(2) + " €"}</span><br></br>
             <Button type="primary" onClick={() => addCart(product)} ghost>Add <ShoppingCartOutlined  /></Button>
           </Card>
-          </div>
-      // <div className="productsContainer" key={product._id}>
-      //   <div>
-      //     <img className="imgProducts" src="https://img.mrvcdn.com/g/fb/kf/E10891acaa024406ea820d33ad51de80fC.jpg_2200x2200q79.jpg_.webp?icc=1"></img>
-      //     <span>{product.name} </span>
-      //     <span>{product.price.toFixed(2) + ' €'}</span>
-
-      //     <button onClick={() => addCart(product)}>Add Cart</button>
-      //   </div>
-      // </div>
+        </div>
     );
   });
 

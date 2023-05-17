@@ -3,13 +3,12 @@ import React from "react";
 import "./Home.scss";
 
 const contentStyle = {
-  height: "475px",
+  minHeight: "calc(91.4vh - 70px - 100px)",
   color: "#fff",
   lineHeight: "160px",
   textAlign: "center",
   fontSize: "40px",
   textShadow: "5px 5px 5px #aaa"
-  // background: "#364d79",
 };
 
 const Home = () => {

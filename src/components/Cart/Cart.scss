@@ -1,8 +1,14 @@
 .imgCart {
-    width: 20%;
+    width: 50%;
+    border-radius: 10px;
 
 }
 .cart-container{
-    min-height: 67vh ;
-    margin-top: 75px;
+    margin: 6%;
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+}
+.ant-table-wrapper .ant-table-tbody >tr >td {
+    transition: background 0.2s,border-color 0.2s;
+    border-bottom: 1px solid #f0f0f0;
+    width: 10%;
 }

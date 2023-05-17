@@ -1,20 +1,29 @@
- 
-
-.productsContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 100px;
-    background-color: --five;
-    margin-top: 20px;
+.productsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 100px;
+  background-color: --five;
+  margin-top: 50px;
 }
 
 .imgProducts {
-    width: 20%;
+  width: 20%;
+}
+
+.ant-card-cover {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 145px;
+  overflow: hidden;
 }
 
 .productImage {
-    width: 20%;
-    height: 40%;
+  display: block;
+  max-width: 160px;
+  max-height: 145px;
+  width: auto;
+  height: auto;
 }
